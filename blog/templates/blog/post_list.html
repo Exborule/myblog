@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Blog - The X-perience{% endblock %}
+
+{% block content %}
+    <h2>Blog Posts</h2>
+    <div>
+        <a href="{% url 'post_list' %}?category=blog">Blogs</a>
+        <a href="{% url 'post_list' %}?category=movie">Movies</a>
+        <a href="{% url 'post_list' %}?category=tv_anime">TV/Anime</a>
+    </div>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <p><em>by {{ post.author }} on {{ post.created_at }} (Category: {{ post.get_category_display }})</em></p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

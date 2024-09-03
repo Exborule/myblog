@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The X-perience{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>The X-perience</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'post_list' %}">Blog</a></li>
+                <li><a href="{% url 'movies' %}">Movies</a></li>
+                <li><a href="{% url 'tv_anime' %}">TV/Anime</a></li>
+                <li><a href="{% url 'player_stats' %}">Hockey</a></li>
+                <li><a href="{% url 'new_post' %}" class="btn">Write New Post</a></li>  <!-- New Button -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

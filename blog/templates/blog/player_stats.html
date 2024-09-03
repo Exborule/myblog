@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player Statistics</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Player Statistics</h1>
+        <a href="{% url 'post_list' %}" class="button">Home</a>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Age</th>
+                    <th>Team</th>
+                    <th>Position</th>
+                    <th>Games Played</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Points</th>
+                    <th>+/-</th>
+                    <th>PIM</th>
+                    <th>Even Goals</th>
+                    <th>PP Goals</th>
+                    <th>SH Goals</th>
+                    <th>GW Goals</th>
+                    <th>EV Time On Ice</th>
+                    <th>PP Time On Ice</th>
+                    <th>SH Time On Ice</th>
+                    <th>SOG</th>
+                    <th>SPCT</th>
+                    <th>TSA</th>
+                    <th>TOI</th>
+                    <th>ATOI</th>
+                    <th>FOW</th>
+                    <th>FOL</th>
+                    <th>FO%</th>
+                    <th>BL</th>
+                    <th>HIT</th>
+                    <th>TAKE</th>
+                    <th>GIVE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in player_stats %}
+                <tr>
+                    <td>{{ stat.player }}</td>
+                    <td>{{ stat.age }}</td>
+                    <td>{{ stat.team }}</td>
+                    <td>{{ stat.position }}</td>
+                    <td>{{ stat.games_played }}</td>
+                    <td>{{ stat.goals }}</td>
+                    <td>{{ stat.assists }}</td>
+                    <td>{{ stat.points }}</td>
+                    <td>{{ stat.plus_minus }}</td>
+                    <td>{{ stat.penalty_minutes }}</td>
+                    <td>{{ stat.even_goals }}</td>
+                    <td>{{ stat.power_play_goals }}</td>
+                    <td>{{ stat.short_hand_goals }}</td>
+                    <td>{{ stat.game_winning_goals }}</td>
+                    <td>{{ stat.even_strength }}</td>
+                    <td>{{ stat.power_play }}</td>
+                    <td>{{ stat.short_hand }}</td>
+                    <td>{{ stat.shots_on_goal }}</td>
+                    <td>{{ stat.shooting_percentage }}</td>
+                    <td>{{ stat.total_shots_attempted }}</td>
+                    <td>{{ stat.time_on_ice }}</td>
+                    <td>{{ stat.average_time_on_ice }}</td>
+                    <td>{{ stat.faceoff_wins }}</td>
+                    <td>{{ stat.faceoff_losses }}</td>
+                    <td>{{ stat.faceoff_percentage }}</td>
+                    <td>{{ stat.blocks }}</td>
+                    <td>{{ stat.hits }}</td>
+                    <td>{{ stat.takeaways }}</td>
+                    <td>{{ stat.giveaways }}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
